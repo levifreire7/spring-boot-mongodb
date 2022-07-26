@@ -26,9 +26,8 @@ public class UserResource {
 
 	final UserService service;
 
-	public UserResource(UserService service) {
-		this.service = service;
-
+	public UserResource(UserService userService) {
+		this.service = userService;
 	}
 
 	@GetMapping

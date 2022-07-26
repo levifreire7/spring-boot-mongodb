@@ -3,7 +3,6 @@ package com.levifreire.springbootmongodb.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.levifreire.springbootmongodb.domain.User;
@@ -14,8 +13,11 @@ import com.levifreire.springbootmongodb.services.exception.ObjectNotFoundExcepti
 @Service
 public class UserService {
 
-	@Autowired
-	private UserRepository repo;
+	final UserRepository repo;
+	
+	public UserService(UserRepository userRepository) {
+		repo = userRepository;
+	}
 
 	public List<User> findAll() {
 		return repo.findAll();
